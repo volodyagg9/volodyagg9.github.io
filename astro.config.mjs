@@ -14,7 +14,7 @@ import sitemap from '@astrojs/sitemap';
 //                            base: '/имя-репо'
 // ─────────────────────────────────────────────────────────────
 export default defineConfig({
-  site: 'https://volodya.dev',
+  site: 'https://volodyadev.ru',
   // base: '/имя-репо',   // ← раскомментируй ТОЛЬКО для project pages без своего домена
   integrations: [sitemap()],
   markdown: {
