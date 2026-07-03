@@ -7,7 +7,7 @@ export const SITE = {
   handle: 'volodya.dev',            // то, что видно в шапке
   title: 'volodya.dev',             // <title> и OG
   description:
-    'Бэкенд на Python/FastAPI. Держу VolodyaPN, пишу телеграм-ботов, копаюсь в железе.',
+    'Бэкенд на Python/FastAPI. Держу nyxa, пишу телеграм-ботов, копаюсь в железе.',
   author: 'Volodya',
   locale: 'ru-RU',
   timezone: 'SPB',               // показывается в статус-строке
@@ -27,11 +27,7 @@ export const PROJECTS: { name: string; href: string; note: string }[] = [
     href: 'https://t.me/getnyxa_bot',
     note: 'Сервис защищённого интернета',
   },
-  {
-    name: 'tg-shop-miniapp',
-    href: 'https://example.com',
-    note: 'Telegram Mini App — витрина подписок. aiogram 3.x + FastAPI.',
-  },
+
   {
     name: 'github',
     href: 'https://github.com/volodyagg9',
