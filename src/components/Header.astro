@@ -6,8 +6,7 @@ const year = new Date().getFullYear();
 ---
 
 <header class="masthead rise">
-  <h1 class="name">{SITE.handle.replace('.', '')}<span class="dot">.{SITE.handle.split('.')[1] ?? 'dev'}</span></h1>
-
+  <h1 class="name">{SITE.handle.slice(0, -3)}<span class="dot">{SITE.handle.slice(-3)}</span></h1>
   <div class="status">
     <span class="pulse">online</span>
     <span class="sep">/</span>

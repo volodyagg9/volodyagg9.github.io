@@ -4,8 +4,8 @@
 // ─────────────────────────────────────────────────────────────
 
 export const SITE = {
-  handle: 'volodya.dev',            // то, что видно в шапке
-  title: 'volodya.dev',             // <title> и OG
+  handle: 'volodyadev',            // то, что видно в шапке
+  title: 'volodyadev',             // <title> и OG
   description:
     'Бэкенд на Python/FastAPI. Держу nyxa, пишу телеграм-ботов, копаюсь в железе.',
   author: 'Volodya',
