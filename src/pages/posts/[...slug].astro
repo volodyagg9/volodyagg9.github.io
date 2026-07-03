@@ -1,0 +1,43 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE } from '../../consts';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('posts')).filter((p) => !p.data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fmt = (d: Date) => d.toISOString().slice(0, 10);
+---
+
+<Base
+  title={`${post.data.title} — ${SITE.title}`}
+  description={post.data.description ?? SITE.description}
+  type="article"
+>
+  <a class="back" href="/">← {SITE.handle}</a>
+
+  <article>
+    <header class="post-head">
+      <h1 class="post-title">{post.data.title}</h1>
+      <div class="post-meta">
+        <time datetime={post.data.date.toISOString()}>{fmt(post.data.date)}</time>
+        {post.data.tags.length > 0 && <> · {post.data.tags.map((t) => `#${t}`).join('  ')}</>}
+      </div>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+
+  <Footer />
+</Base>

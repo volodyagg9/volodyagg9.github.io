@@ -1,0 +1,15 @@
+---
+import { PROJECTS } from '../consts';
+---
+
+<section class="rise">
+  <h2 class="eyebrow">projects</h2>
+  <ul class="projects">
+    {PROJECTS.map((p) => (
+      <li class="project">
+        <a class="pname" href={p.href} target="_blank" rel="noopener">{p.name}</a>
+        <span class="pnote">{p.note}</span>
+      </li>
+    ))}
+  </ul>
+</section>
