@@ -1,5 +1,9 @@
 ---
 import { SITE } from '../consts';
+// self-hosted шрифты (грузятся с твоего домена, не с Google)
+import '@fontsource-variable/playfair-display';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/jetbrains-mono';
 import '../styles/global.css';
 
 interface Props {
@@ -7,15 +11,19 @@ interface Props {
   description?: string;
   /** тип OG: website для главной, article для постов */
   type?: 'website' | 'article';
+  /** путь к OG-картинке, по умолчанию общая обложка */
+  image?: string;
 }
 
 const {
   title = SITE.title,
   description = SITE.description,
   type = 'website',
+  image = '/og.png',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = new URL(image, Astro.site).toString();
 ---
 
 <!doctype html>
@@ -29,23 +37,19 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate" type="application/rss+xml" title={SITE.title} href="/rss.xml" />
 
-    <!-- OG / Twitter — красивое превью в телеге и соцсетях -->
+    <!-- OG / Twitter — красивое превью с картинкой в телеге и соцсетях -->
     <meta property="og:type" content={type} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={SITE.title} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-
-    <!-- шрифты: display / body / mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="twitter:image" content={ogImage} />
 
     <meta name="theme-color" content="#14161a" />
   </head>

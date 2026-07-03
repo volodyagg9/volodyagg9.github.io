@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../consts';
+---
+
+<Base title={`about — ${SITE.title}`} description="Кто я и чем занимаюсь.">
+  <a class="back" href="/">← {SITE.handle}</a>
+
+  <h2 class="eyebrow">about</h2>
+
+  <div class="prose">
+    <p>
+      Привет, я {SITE.author}. Пишу бэкенд на <strong>Python</strong> —
+      в основном FastAPI, async SQLAlchemy, PostgreSQL, Celery. Люблю, когда
+      система простая снаружи и предсказуемая внутри.
+    </p>
+
+    <p>
+      Держу <a href="https://t.me/getnyxa_bot">nyxa</a> — сервис защищённого
+      интернета: свои ноды, аккуратная инфраструктура, автоматизация вместо
+      ручной возни. Между делом пишу телеграм-ботов и мини-аппы.
+    </p>
+
+    <p>
+      Вне кода — железо и машины (особенно японские), немного трейд скинов, и
+      бесконечная возня с системой заметок. Здесь пишу то, до чего сам долго
+      докапывался, — чтобы не искать второй раз.
+    </p>
+
+    <p>
+      Написать: <a href="https://t.me/volodyaceo">телеграм</a> или
+      <a href="mailto:volodyagg9@icloud.com">почта</a>.
+    </p>
+  </div>
+
+  <Footer />
+</Base>
